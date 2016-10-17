@@ -17,8 +17,6 @@ public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
     
-    Session sessao = HibernateUtil.getSessionFactory().openSession();
-    
     public String voltaPessoas(){
         return "pessoas";
     }
@@ -27,6 +25,7 @@ public class PessoasBean {
 //-> LISTAGEM
 //--------------------------------------------------------------------------------------------------------    
     private void listaPessoas(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
         try {
             lstpessoas = sessao.createCriteria(Pessoas.class).list();
         } catch (Exception e) {
@@ -38,6 +37,7 @@ public class PessoasBean {
 //-> GRAVA    
 //--------------------------------------------------------------------------------------------------------    
     public String salvaPessoa(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = sessao.beginTransaction();
         try {            
             transacao.begin();

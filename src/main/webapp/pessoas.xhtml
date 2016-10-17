@@ -13,19 +13,19 @@
             <h:form>
                 <b:commandButton value="Incluir novo" look="primary" action="formPessoas"/>
             </h:form>
-            <p:dataTable value="#{pessoasBean.lstpessoas()}" var="lstpessoas"
+            <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
                     emptyMessage="Nenhuma pessoa cadastrada." rows="10" 
                     paginator="true" paginatorPosition="bottom"
                     style="margin-top: 10px" id="pessoas-table">
 					
-                    <p:column headerText="Nome" sortBy="#{lstpessoas.nome}">
-                        <h:outputText value="#{lstpessoas.nome}" />
+                    <p:column headerText="Nome" sortBy="#{lista.nome}">
+                        <h:outputText value="#{lista.nome}" />
                     </p:column>
                     <p:column headerText="Endereço" width="250">
-                        <h:outputText value="#{lstpessoas.endereco}" />
+                        <h:outputText value="#{lista.endereco}" />
                     </p:column>
                     <p:column headerText="Telefone(s)" width="160">
-                        <h:outputText value="#{lstpessoas.telefones}" />
+                        <h:outputText value="#{lista.telefones}" />
                     </p:column>
 		</p:dataTable>
         </ui:define>
