@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="template.xhtml">
+        <ui:param name="titulo" value="Cadastro de pessoa" />
+        
+        <ui:define name="areadetrabalho">
+            <div class="form-group">
+                <p:outputLabel value="Nome"/>
+                <p:inputText class="form-control" id="nome" size="60" maxlength="80" value="#{produtoBean.produto.nome}"/>
+            </div>                
+
+            <div class="form-group">
+                <p:outputLabel value="Endereço"/>
+                <p:inputText class="form-control" id="endereco" size="60" maxlength="80" value="#{produtoBean.produto.fornecedor}"/>
+            </div>                
+
+            <div class="form-group">
+                <p:outputLabel value="Telefone"/>
+                <p:inputText class="form-control" id="telefones" size="60" maxlength="80" value="#{produtoBean.produto.grupo}"/>
+            </div>                
+
+            <div class="form-group">
+                <h:form>
+                    <b:commandButton value="Gravar" look="success" action="#{pessoasBean.salvaPessoa()}"/>
+                    <b:commandButton value="Cancelsr" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
+                </h:form>
+            </div>             
+        </ui:define>
+    </ui:composition>    
+</html> 

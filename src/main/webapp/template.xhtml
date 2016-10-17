@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">    
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Agenda Política</title>
+        <meta name="author" content="Beto Licks"></meta>
+    </h:head>
+    <h:body style="padding: 10px;">
+        <b:navBar brand="Agenda Política" brandHref="index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Pessoas" href="pessoas.xhtml"></b:navLink>
+                <b:navLink value="Compromissos" href="index.xhtml"></b:navLink>
+                <b:navLink value="Relatório" href="index.xhtml"></b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:container>
+            <b:jumbotron>
+                <h2>#{titulo}</h2>
+                
+                <p>#{texto}</p>
+                
+                <ui:insert name="areadetrabalho"/>
+            </b:jumbotron>
+        </b:container>
+
+        <hr/>
+        <footer>
+        <p>© Beto Licks 2016</p>
+        </footer>        
+    </h:body>
+</html>
