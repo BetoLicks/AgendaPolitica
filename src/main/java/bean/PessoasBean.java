@@ -22,7 +22,10 @@ public class PessoasBean {
     public String voltaPessoas(){
         return "pessoas";
     }
-    
+
+//--------------------------------------------------------------------------------------------------------
+//-> BOTÃO VOLTAR
+//--------------------------------------------------------------------------------------------------------    
     public PessoasBean(){
        listaPessoas(); 
     }
@@ -47,10 +50,15 @@ public class PessoasBean {
         
         try {           
             Transaction transacao = sessao.getTransaction();
-            System.out.println("* * *  NOME: "+pessoas.getNome());
             transacao.begin();
             sessao.save(pessoas);
             transacao.commit();
+            
+            pessoas.setNome(null);
+            pessoas.setTelefones(null);
+            pessoas.setEndereco(null);
+            
+            listaPessoas();
             return "pessoas";
         } catch (Exception e) {
             System.out.println("* * *  ERRO AO GRAVAR: "+e.getMessage());

@@ -11,23 +11,42 @@
         
         <ui:define name="areadetrabalho">           
             <h:form>
+                <p:messages showDetail="false" showSummary="true" autoUpdate="true" />
                 <b:commandButton value="Incluir novo" look="primary" action="formPessoas"/>
-            </h:form>
-            <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
+            
+                <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
                     emptyMessage="Nenhuma pessoa cadastrada." rows="10" 
-                    paginator="true" paginatorPosition="bottom"
+                    paginator="true" paginatorPosition="bottom" 
                     style="margin-top: 10px" id="pessoas-table">
-					
-                    <p:column headerText="Nome" sortBy="#{lista.id}">
+
+                    <p:column headerText="Código" width="57" style="width:32px;text-align: center">
                         <h:outputText value="#{lista.id}" />
                     </p:column>
+                    
+                    <p:column headerText="Nome" sortBy="#{lista.nome}">
+                        <h:outputText value="#{lista.nome}" />
+                    </p:column>
+
                     <p:column headerText="Endereço" width="250">
                         <h:outputText value="#{lista.endereco}" />
                     </p:column>
+
                     <p:column headerText="Telefone(s)" width="160">
                         <h:outputText value="#{lista.telefones}" />
                     </p:column>
+                    
+                    <p:column style="width:85px;text-align: center">
+                        <p:commandButton icon="ui-icon-pencil" title="Alterar">
+                
+                        </p:commandButton>
+                        
+                        <p:commandButton icon="ui-icon-closethick" title="Excluir">
+                
+                        </p:commandButton>
+                        
+                    </p:column>
 		</p:dataTable>
+            </h:form>    
         </ui:define>
     </ui:composition>    
 </html> 
