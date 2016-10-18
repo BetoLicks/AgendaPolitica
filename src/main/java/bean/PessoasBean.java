@@ -1,9 +1,10 @@
 package bean;
 
 import entidade.Pessoas;
+import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -13,6 +14,7 @@ import util.HibernateUtil;
  * @author Beto Licks
  */
 @ManagedBean
+@SessionScoped
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
@@ -37,16 +39,18 @@ public class PessoasBean {
 //-> GRAVA    
 //--------------------------------------------------------------------------------------------------------    
     public String salvaPessoa(){
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
-        Transaction transacao = sessao.beginTransaction();
-        try {            
+        Session sessao = HibernateUtil.getSessionFactory().openSession();        
+        Transaction transacao = sessao.getTransaction();
+        try {                        
             transacao.begin();
             sessao.save(pessoas);
             transacao.commit();
             return "pessoas";
         } catch (Exception e) {
-            transacao.rollback();            
+            transacao.rollback();      
+            System.out.println("* * *  ERRO AO GRAVAR: "+e.getMessage());
         } finally {
+            System.out.println("* * *  NOME: "+pessoas.getNome());
             sessao.close();            
         }
         
@@ -68,6 +72,8 @@ public class PessoasBean {
     public void setLstpessoas(List<Pessoas> lstpessoas) {
         this.lstpessoas = lstpessoas;
     }
+
+
     
     
     
