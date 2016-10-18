@@ -18,13 +18,16 @@ import util.HibernateUtil;
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
-    
+
+//--------------------------------------------------------------------------------------------------------
+//-> BOTÃO VOLTAR
+//--------------------------------------------------------------------------------------------------------    
     public String voltaPessoas(){
         return "pessoas";
     }
 
 //--------------------------------------------------------------------------------------------------------
-//-> BOTÃO VOLTAR
+//-> LISTAGEM INICIAL
 //--------------------------------------------------------------------------------------------------------    
     public PessoasBean(){
        listaPessoas(); 

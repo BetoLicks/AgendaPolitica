@@ -14,30 +14,62 @@
             <h:form id="form">
                 <p:messages showDetail="false" showSummary="true" autoUpdate="true" />
 		
-                <p:panelGrid columns="2" id="grid" styleClass="form-grid" columnClasses="label, campo">
+                <h:panelGrid columns="3" id="grid" styleClass="form-grid" columnClasses="label, campo">
             
+                    <div class="form-group">
                     <p:outputLabel value="Nome"/>
                     <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.nome}"
                                  required="true" label="Nome">
                                 <f:validateLength minimum="2"/>
                     </p:inputText>
+                    </div>
 
+                    <div class="form-group">
                     <p:outputLabel value="Endereço"/>
                     <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.endereco}"
                                  required="true" label="Endereço">
                                 <f:validateLength minimum="2"/>
                     </p:inputText>
+                    </div>
 
+                    <div class="form-group">
                     <p:outputLabel value="Telefone(s)"/>
                     <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.telefones}"
                                  required="true" label="Telefone">
                                 <f:validateLength minimum="2"/>
                     </p:inputText>
+                    </div>
 
                     <b:commandButton value="Gravar" look="success" action="#{pessoasBean.salvaPessoa()}"/>
-                    <b:commandButton value="Cancelsr" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
+                    <b:commandButton value="Cancelar" immediate="true" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
                     
-                </p:panelGrid>
+                </h:panelGrid>
+                
+                
+                
+<form role="form" method="POST" action="#">
+              <div class="form-group col-lg-4">
+                <label for="input1">Name</label>
+                <input type="text" name="contact_name" class="form-control" id="input1"/>
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="input2">Email Address</label>
+                <input type="email" name="contact_email" class="form-control" id="input2"/>
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="input3">Phone Number</label>
+                <input type="phone" name="contact_phone" class="form-control" id="input3"/>
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-group col-lg-12">
+                <label for="input4">Message</label>
+                <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
+              </div>
+              <div class="form-group col-lg-12">
+                <input type="hidden" name="save" value="contact"/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+</form>                
             </h:form>                    
         </ui:define>
     </ui:composition>    

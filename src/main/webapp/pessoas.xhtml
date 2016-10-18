@@ -19,7 +19,7 @@
                     paginator="true" paginatorPosition="bottom" 
                     style="margin-top: 10px" id="pessoas-table">
 
-                    <p:column headerText="Código" width="57" style="width:32px;text-align: center">
+                    <p:column headerText="Código" width="57" style="width:32px;text-align: center" sortBy="#{lista.id}">
                         <h:outputText value="#{lista.id}" />
                     </p:column>
                     
@@ -43,7 +43,6 @@
                         <p:commandButton icon="ui-icon-closethick" title="Excluir">
                 
                         </p:commandButton>
-                        
                     </p:column>
 		</p:dataTable>
             </h:form>    
