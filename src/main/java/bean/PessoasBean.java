@@ -23,6 +23,10 @@ public class PessoasBean {
         return "pessoas";
     }
     
+    public PessoasBean(){
+       listaPessoas(); 
+    }
+    
 //--------------------------------------------------------------------------------------------------------
 //-> LISTAGEM
 //--------------------------------------------------------------------------------------------------------    
@@ -40,17 +44,18 @@ public class PessoasBean {
 //--------------------------------------------------------------------------------------------------------    
     public String salvaPessoa(){
         Session sessao = HibernateUtil.getSessionFactory().openSession();        
-        Transaction transacao = sessao.getTransaction();
-        try {                        
+        
+        try {           
+            Transaction transacao = sessao.getTransaction();
+            System.out.println("* * *  NOME: "+pessoas.getNome());
             transacao.begin();
             sessao.save(pessoas);
             transacao.commit();
             return "pessoas";
         } catch (Exception e) {
-            transacao.rollback();      
             System.out.println("* * *  ERRO AO GRAVAR: "+e.getMessage());
         } finally {
-            System.out.println("* * *  NOME: "+pessoas.getNome());
+            
             sessao.close();            
         }
         
