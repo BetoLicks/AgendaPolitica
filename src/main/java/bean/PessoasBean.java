@@ -13,6 +13,7 @@ import util.HibernateUtil;
  *
  * @author Beto Licks
  */
+
 @ManagedBean
 @SessionScoped
 public class PessoasBean {
@@ -73,6 +74,7 @@ public class PessoasBean {
         pessoas.setEmail(null);
         pessoas.setBairro(null);
     }
+    
 //--------------------------------------------------------------------------------------------------------
 //-> LISTAGEM
 //--------------------------------------------------------------------------------------------------------    

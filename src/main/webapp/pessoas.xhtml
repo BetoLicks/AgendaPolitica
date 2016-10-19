@@ -38,16 +38,33 @@
                     
                     <p:column style="width:90px;text-align: center">
                         <p:commandButton icon="ui-icon-pencil" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
-                        <p:commandButton icon="ui-icon-trash" title="Excluir" onclick="excpessoa.show()"/>
+                        
+                        <p:commandButton icon="ui-icon-trash" title="Excluir"
+                            update=":formdialogo"> 
+                            <p:confirm header="Confirme" message="Você quer excluir o registro selecionado?" />
+                        </p:commandButton>
                     </p:column>
 		</p:dataTable>
                 
+                <!-- BOTÃO DE CONFIRMAÇÃO DE EXCLUSÃO... -->
                 <p:confirmDialog message="Você quer exluir o registro selecionado?" header="Confirme" severity="alert" widgetVar="excpessoa">
                     <p:commandButton value="Sim" oncomplete="excpessoa.hide()"
                                      actionListener="#{pessoasBean.preparaCampos()}" />
                     <p:commandButton value="Não" onclick="excpessoa.hide()" type="button" />
-                </p:confirmDialog>                
+                </p:confirmDialog>              
             </h:form>   
+            
+            <!-- DIÁLOGO DE EXLUSÃO... -->
+            <h:form id="formdialogo">
+                <p:confirmDialog global="true">
+                    <h:form>
+                        <p:commandButton value="Sim" type="button" actionListener="#{pessoasBean.preparaCampos()}"
+                            styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="Não" type="button"
+                            styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </h:form>
+                </p:confirmDialog>
+            </h:form>                
         </ui:define>
     </ui:composition>    
 </html> 
