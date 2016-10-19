@@ -18,7 +18,25 @@ import util.HibernateUtil;
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
+    private String tipoGrava;
 
+//--------------------------------------------------------------------------------------------------------
+//-> PREPARAÇÃO DOS CAMPOS PARA INCLUSÃO
+//--------------------------------------------------------------------------------------------------------       
+    public String preparaCampos(){
+        limpaCampos();
+        return "formPessoas";        
+    }
+    
+//--------------------------------------------------------------------------------------------------------
+//-> DADOS PARA ALTERAÇÃO
+//--------------------------------------------------------------------------------------------------------    
+    public String dadosPessoa(Pessoas p){
+        tipoGrava = "alterar";
+        pessoas = p;
+        return "formPessoas";
+    }
+    
 //--------------------------------------------------------------------------------------------------------
 //-> BOTÃO VOLTAR
 //--------------------------------------------------------------------------------------------------------    
@@ -30,9 +48,24 @@ public class PessoasBean {
 //-> LISTAGEM INICIAL
 //--------------------------------------------------------------------------------------------------------    
     public PessoasBean(){
-       listaPessoas(); 
+       tipoGrava = "incluir";
+       limpaCampos();
+       listaPessoas();        
     }
-    
+
+//--------------------------------------------------------------------------------------------------------
+//-> LIMPA CAMPOS
+//--------------------------------------------------------------------------------------------------------    
+    private void limpaCampos(){
+        pessoas.setId(null);
+        pessoas.setNome(null);
+        pessoas.setTelefones(null);
+        pessoas.setEndereco(null);
+        pessoas.setApelido(null);
+        pessoas.setComplemento(null);
+        pessoas.setEmail(null);
+        pessoas.setBairro(null);
+    }
 //--------------------------------------------------------------------------------------------------------
 //-> LISTAGEM
 //--------------------------------------------------------------------------------------------------------    
@@ -54,13 +87,17 @@ public class PessoasBean {
         try {           
             Transaction transacao = sessao.getTransaction();
             transacao.begin();
-            sessao.save(pessoas);
+            
+            //-> VERIFICO O TIPO DE GRAVAÇÃO
+            if (tipoGrava.equals("incluir")){
+               sessao.save(pessoas);
+            } else {
+               sessao.update(pessoas); 
+            }
+            
             transacao.commit();
             
-            pessoas.setNome(null);
-            pessoas.setTelefones(null);
-            pessoas.setEndereco(null);
-            
+            limpaCampos();            
             listaPessoas();
             return "pessoas";
         } catch (Exception e) {

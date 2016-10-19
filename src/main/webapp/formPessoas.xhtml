@@ -14,65 +14,65 @@
             <h:form id="form">
                 <p:messages showDetail="false" showSummary="true" autoUpdate="true" />
 		
-                <h:panelGrid columns="3" id="grid" styleClass="form-grid" columnClasses="label, campo">
-            
-                    <div class="form-group">
-                    <p:outputLabel value="Nome"/>
-                    <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.nome}"
-                                 required="true" label="Nome">
-                                <f:validateLength minimum="2"/>
-                    </p:inputText>
-                    </div>
+                <b:row>
+                    <b:column span="8">
+                        <p:outputLabel value="Nome"/>
+                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
+                            required="true" label="Nome">
+                            <f:validateLength minimum="2"/>  
+                        </p:inputText>
+                    </b:column>
 
-                    <div class="form-group">
-                    <p:outputLabel value="Endereço"/>
-                    <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.endereco}"
-                                 required="true" label="Endereço">
-                                <f:validateLength minimum="2"/>
-                    </p:inputText>
-                    </div>
-
-                    <div class="form-group">
-                    <p:outputLabel value="Telefone(s)"/>
-                    <p:inputText class="form-control" size="60" maxlength="80" value="#{pessoasBean.pessoas.telefones}"
-                                 required="true" label="Telefone">
-                                <f:validateLength minimum="2"/>
-                    </p:inputText>
-                    </div>
-
-                    <b:commandButton value="Gravar" look="success" action="#{pessoasBean.salvaPessoa()}"/>
-                    <b:commandButton value="Cancelar" immediate="true" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
+                    <b:column span="4">
+                        <p:outputLabel value="Apelido"/>
+                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.apelido}"/>    
+                    </b:column>
+                </b:row>                    
                     
-                </h:panelGrid>
+                <b:row>
+                    <b:column span="4">
+                        <p:outputLabel value="Endereço"/>
+                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.endereco}"
+                            required="true" label="Endereco">
+                            <f:validateLength minimum="2"/>  
+                        </p:inputText>
+                    </b:column>
+
+                    <b:column span="4">
+                        <p:outputLabel value="Bairro"/>
+                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.bairro}"
+                            required="true" label="Bairro">
+                            <f:validateLength minimum="2"/>    
+                        </p:inputText>
+                    </b:column>
+
+                    <b:column span="4">
+                        <p:outputLabel value="Complemento"/>
+                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.complemento}"/>    
+                    </b:column>
+                </b:row>                       
+
+                <b:row>
+                    <b:column span="4">
+                        <p:outputLabel value="Telefone(s)"/>
+                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.telefones}"
+                            required="true" label="Telefones">
+                            <f:validateLength minimum="2"/>  
+                        </p:inputText>
+                    </b:column>
+
+                    <b:column span="8">
+                        <p:outputLabel value="Email"/>
+                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>    
+                    </b:column>
+                </b:row>      
                 
-                
-                
-<form role="form" method="POST" action="#">
-              <div class="form-group col-lg-4">
-                <label for="input1">Name</label>
-                <input type="text" name="contact_name" class="form-control" id="input1"/>
-              </div>
-              <div class="form-group col-lg-4">
-                <label for="input2">Email Address</label>
-                <input type="email" name="contact_email" class="form-control" id="input2"/>
-              </div>
-              <div class="form-group col-lg-4">
-                <label for="input3">Phone Number</label>
-                <input type="phone" name="contact_phone" class="form-control" id="input3"/>
-              </div>
-              <div class="clearfix"></div>
-              <div class="form-group col-lg-12">
-                <label for="input4">Message</label>
-                <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
-              </div>
-              <div class="form-group col-lg-12">
-                <input type="hidden" name="save" value="contact"/>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-</form>                
-                
-                
-                
+                <b:row>
+                    <b:column span="12">
+                        <b:commandButton style="margin-right: 3px" value="Gravar" look="success" action="#{pessoasBean.salvaPessoa()}"/>
+                        <b:commandButton value="Cancelar" immediate="true" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
+                    </b:column>
+                </b:row>                    
                 
             </h:form>                    
         </ui:define>

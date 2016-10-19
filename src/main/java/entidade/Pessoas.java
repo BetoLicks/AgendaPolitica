@@ -23,6 +23,10 @@ public class Pessoas implements Serializable{
     private String nome;
     private String endereco;
     private String telefones;
+    private String apelido;
+    private String bairro;
+    private String complemento;
+    private String email;
 
     public Integer getId() {
         return id;
@@ -54,6 +58,38 @@ public class Pessoas implements Serializable{
 
     public void setTelefones(String telefones) {
         this.telefones = telefones;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

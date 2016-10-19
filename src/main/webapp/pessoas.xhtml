@@ -12,7 +12,7 @@
         <ui:define name="areadetrabalho">           
             <h:form>
                 <p:messages showDetail="false" showSummary="true" autoUpdate="true" />
-                <b:commandButton value="Incluir novo" look="primary" action="formPessoas"/>
+                <b:commandButton value="Incluir novo" look="primary" action="#{pessoasBean.preparaCampos()}"/>
             
                 <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
                     emptyMessage="Nenhuma pessoa cadastrada." rows="10" 
@@ -27,8 +27,8 @@
                         <h:outputText value="#{lista.nome}" />
                     </p:column>
 
-                    <p:column headerText="Endereço" width="250">
-                        <h:outputText value="#{lista.endereco}" />
+                    <p:column headerText="Apelido" width="250">
+                        <h:outputText value="#{lista.apelido}" />
                     </p:column>
 
                     <p:column headerText="Telefone(s)" width="160">
@@ -36,9 +36,7 @@
                     </p:column>
                     
                     <p:column style="width:85px;text-align: center">
-                        <p:commandButton icon="ui-icon-pencil" title="Alterar">
-                
-                        </p:commandButton>
+                        <p:commandButton icon="ui-icon-pencil" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
                         
                         <p:commandButton icon="ui-icon-closethick" title="Excluir">
                 
