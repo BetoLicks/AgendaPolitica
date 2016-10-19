@@ -12,6 +12,7 @@
         <ui:define name="areadetrabalho">           
             <h:form>
                 <p:messages showDetail="false" showSummary="true" autoUpdate="true" />
+                
                 <b:commandButton value="Incluir novo" look="primary" action="#{pessoasBean.preparaCampos()}"/>
             
                 <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
@@ -35,24 +36,18 @@
                         <h:outputText value="#{lista.telefones}" />
                     </p:column>
                     
-                    <p:column style="width:115px;text-align: center">
-                        <p:commandButton icon="ui-icon-search" title="Ver dados" type="button" onclick="PF('verdados').show();"/>
+                    <p:column style="width:90px;text-align: center">
                         <p:commandButton icon="ui-icon-pencil" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
-                        <p:commandButton icon="ui-icon-trash" title="Excluir" />
+                        <p:commandButton icon="ui-icon-trash" title="Excluir" onclick="excpessoa.show()"/>
                     </p:column>
 		</p:dataTable>
+                
+                <p:confirmDialog message="Você quer exluir o registro selecionado?" header="Confirme" severity="alert" widgetVar="excpessoa">
+                    <p:commandButton value="Sim" oncomplete="excpessoa.hide()"
+                                     actionListener="#{pessoasBean.preparaCampos()}" />
+                    <p:commandButton value="Não" onclick="excpessoa.hide()" type="button" />
+                </p:confirmDialog>                
             </h:form>   
-            
-            <!-- VISUALIZAÇÃO DOS DADOS -->
-            <p:dialog header="Visualização dos dados" widgetVar="verdados" resizable="false" modal="true" width="520" height="300">
-                <h:form id="formverdados">
-                    <h:panelGrid columns="2">
-                       
-                        
-                        <b:commandButton value="Fechar" look="primary" immediate="true" onclick="verdados.hide()" />
-                    </h:panelGrid>
-                </h:form>    
-            </p:dialog> 
         </ui:define>
     </ui:composition>    
 </html> 

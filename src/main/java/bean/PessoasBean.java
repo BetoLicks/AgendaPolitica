@@ -132,14 +132,4 @@ public class PessoasBean {
     public void setLstpessoas(List<Pessoas> lstpessoas) {
         this.lstpessoas = lstpessoas;
     }
-
-
-    
-    
-    
-    
-    
-
-    
-    
 }
