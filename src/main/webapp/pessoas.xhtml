@@ -35,15 +35,24 @@
                         <h:outputText value="#{lista.telefones}" />
                     </p:column>
                     
-                    <p:column style="width:85px;text-align: center">
+                    <p:column style="width:115px;text-align: center">
+                        <p:commandButton icon="ui-icon-search" title="Ver dados" type="button" onclick="PF('verdados').show();"/>
                         <p:commandButton icon="ui-icon-pencil" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
-                        
-                        <p:commandButton icon="ui-icon-closethick" title="Excluir">
-                
-                        </p:commandButton>
+                        <p:commandButton icon="ui-icon-trash" title="Excluir" />
                     </p:column>
 		</p:dataTable>
-            </h:form>    
+            </h:form>   
+            
+            <!-- VISUALIZAÇÃO DOS DADOS -->
+            <p:dialog header="Visualização dos dados" widgetVar="verdados" resizable="false" modal="true" width="520" height="300">
+                <h:form id="formverdados">
+                    <h:panelGrid columns="2">
+                       
+                        
+                        <b:commandButton value="Fechar" look="primary" immediate="true" onclick="verdados.hide()" />
+                    </h:panelGrid>
+                </h:form>    
+            </p:dialog> 
         </ui:define>
     </ui:composition>    
 </html> 
