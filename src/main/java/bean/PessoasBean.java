@@ -9,17 +9,17 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
-/**
- *
+/********************************************************************************************************************
  * @author Beto Licks
- */
+ * Outubro / 2016
+ ********************************************************************************************************************/
 
 @ManagedBean
 @SessionScoped
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
-    private String tipoGrava = "excluir";
+    private String tipoGrava;
 
 //--------------------------------------------------------------------------------------------------------
 //-> PREPARAÇÃO DOS CAMPOS PARA INCLUSÃO
@@ -83,18 +83,18 @@ public class PessoasBean {
 //--------------------------------------------------------------------------------------------------------
 //-> EXLCUIR
 //--------------------------------------------------------------------------------------------------------    
-    public void excluiPessoa(){
+    public void excluiPessoa(Pessoas pes){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         try {
-            Transaction transacao = sessao.beginTransaction();
+            Transaction transacao = sessao.getTransaction();
             transacao.begin();
-            sessao.delete(pessoas);
+            sessao.delete(pes);
             transacao.commit();
             
-            System.out.println("* * * * * * * * ECLUIDO");
-            
+            limpaCampos();            
             listaPessoas();
         } catch (Exception e) {
+            
         } finally {
             sessao.close();
         }
@@ -112,14 +112,9 @@ public class PessoasBean {
             
             //-> VERIFICO O TIPO DE GRAVAÇÃO
             if (tipoGrava.equals("incluir")){
-               sessao.save(pessoas);
-            } else if (tipoGrava.equals("alterar")) {
-               sessao.update(pessoas); 
-            } else {
-               sessao.delete(pessoas);  
-            }
-            
-            System.out.println("* * * TIPO DE GRAVAÇÃO: "+tipoGrava);
+               sessao.save(pessoas); }
+            if (tipoGrava.equals("alterar")) {
+               sessao.update(pessoas); } 
             
             transacao.commit();
             
@@ -129,7 +124,6 @@ public class PessoasBean {
         } catch (Exception e) {
             System.out.println("* * *  ERRO AO GRAVAR: "+e.getMessage());
         } finally {
-            
             sessao.close();            
         }
         

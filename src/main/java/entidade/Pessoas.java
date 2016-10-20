@@ -8,10 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
+/********************************************************************************************************************
  * @author Beto Licks
- */
+ * Outubro / 2016
+ ********************************************************************************************************************/
 
 @Entity
 @Table(name="tab_pessoas")
