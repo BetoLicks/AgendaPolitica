@@ -17,7 +17,7 @@ public class Funcoes {
         
         FacesContext context = FacesContext.getCurrentInstance();
         
-        context.addMessage(null, new FacesMessage("Successful",  "Your message: " + wmensa) );
+       // context.addMessage(null, new FacesMessage("Successful",  "Your message: " + wmensa) );
         context.addMessage(null, new FacesMessage(wmensa, ""));
     }        
         
