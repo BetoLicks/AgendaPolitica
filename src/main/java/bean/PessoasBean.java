@@ -19,19 +19,13 @@ import util.HibernateUtil;
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
     private List<Pessoas> lstpessoas = new ArrayList<>();
-    private String tipoGrava;
+    private String tipoGrava = "excluir";
 
-//--------------------------------------------------------------------------------------------------------
-//-> ALTERA A MENSAGEM DE TOPO
-//--------------------------------------------------------------------------------------------------------       
-    public String alteraTitulo(String wmensa){
-        return wmensa;
-    }
-            
 //--------------------------------------------------------------------------------------------------------
 //-> PREPARAÇÃO DOS CAMPOS PARA INCLUSÃO
 //--------------------------------------------------------------------------------------------------------       
     public String preparaCampos(){
+        tipoGrava = "incluir";
         limpaCampos();
         return "formPessoas";        
     }
@@ -53,10 +47,9 @@ public class PessoasBean {
     }
 
 //--------------------------------------------------------------------------------------------------------
-//-> LISTAGEM INICIAL
+//-> INICIAL
 //--------------------------------------------------------------------------------------------------------    
     public PessoasBean(){
-       tipoGrava = "incluir";
        limpaCampos();
        listaPessoas();        
     }
@@ -86,6 +79,26 @@ public class PessoasBean {
             System.out.println("* * * ERRO AO MONTAR PESQUISA: "+e.getMessage());
         }
     }
+
+//--------------------------------------------------------------------------------------------------------
+//-> EXLCUIR
+//--------------------------------------------------------------------------------------------------------    
+    public void excluiPessoa(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Transaction transacao = sessao.beginTransaction();
+            transacao.begin();
+            sessao.delete(pessoas);
+            transacao.commit();
+            
+            System.out.println("* * * * * * * * ECLUIDO");
+            
+            listaPessoas();
+        } catch (Exception e) {
+        } finally {
+            sessao.close();
+        }
+    }
     
 //--------------------------------------------------------------------------------------------------------
 //-> GRAVA    
@@ -100,9 +113,13 @@ public class PessoasBean {
             //-> VERIFICO O TIPO DE GRAVAÇÃO
             if (tipoGrava.equals("incluir")){
                sessao.save(pessoas);
-            } else {
+            } else if (tipoGrava.equals("alterar")) {
                sessao.update(pessoas); 
+            } else {
+               sessao.delete(pessoas);  
             }
+            
+            System.out.println("* * * TIPO DE GRAVAÇÃO: "+tipoGrava);
             
             transacao.commit();
             
