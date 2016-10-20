@@ -2,19 +2,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">    
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui">
-
-<!-- ---------------------------------------------------------------------------------------------------------- -->
-<!-- Beto Licks -->
-<!-- Outubro / 2016 -->    
-<!-- ---------------------------------------------------------------------------------------------------------- -->
 
     <h:head>
         <title>Agenda Política</title>
         <meta name="author" content="Beto Licks"></meta>        
     </h:head>
     <h:body style="padding: 10px;">
+        <p:growl id="growl" showDetail="false" sticky="false" life="500"/>  
+        
+        <p:messages showDetail="false" showSummary="true" autoUpdate="true"/>        
+        
         <b:navBar brand="Agenda Política" brandHref="index.xhtml" fixed="top" inverse="true">
             <b:navbarLinks>
                 <b:navLink value="Pessoas" href="pessoas.xhtml"></b:navLink>
@@ -31,7 +31,7 @@
                 <ui:insert name="areadetrabalho"/>
             </b:jumbotron>
         </b:container>
-
+        
         <hr/>
         <footer>
         <p>© Beto Licks 2016</p>

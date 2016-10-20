@@ -7,7 +7,7 @@ import java.util.List;
 import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.HibernateUtil;
+import util.*;
 
 /********************************************************************************************************************
  * @author Beto Licks
@@ -18,6 +18,7 @@ import util.HibernateUtil;
 @SessionScoped
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
+    private Funcoes func = new Funcoes();
     private List<Pessoas> lstpessoas = new ArrayList<>();
     private String tipoGrava;
 
@@ -112,9 +113,13 @@ public class PessoasBean {
             
             //-> VERIFICO O TIPO DE GRAVAÇÃO
             if (tipoGrava.equals("incluir")){
-               sessao.save(pessoas); }
+               sessao.save(pessoas);
+               func.Mensagem("Regitro incluído com sucesso.");
+            }
             if (tipoGrava.equals("alterar")) {
-               sessao.update(pessoas); } 
+               sessao.update(pessoas); 
+               func.Mensagem("Regitro alterado com sucesso.");
+            } 
             
             transacao.commit();
             
