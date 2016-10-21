@@ -18,7 +18,6 @@ import util.*;
 @SessionScoped
 public class PessoasBean {
     private Pessoas pessoas = new Pessoas();
-    private Funcoes func = new Funcoes();
     private List<Pessoas> lstpessoas = new ArrayList<>();
     private String tipoGrava;
 
@@ -92,6 +91,8 @@ public class PessoasBean {
             sessao.delete(pes);
             transacao.commit();
             
+            Funcoes.Mensagem("Regitro excluído com sucesso.");
+            
             limpaCampos();            
             listaPessoas();
         } catch (Exception e) {
@@ -114,11 +115,11 @@ public class PessoasBean {
             //-> VERIFICO O TIPO DE GRAVAÇÃO
             if (tipoGrava.equals("incluir")){
                sessao.save(pessoas);
-               func.Mensagem("Regitro incluído com sucesso.");
+               Funcoes.Mensagem("Regitro incluído com sucesso.");
             }
             if (tipoGrava.equals("alterar")) {
                sessao.update(pessoas); 
-               func.Mensagem("Regitro alterado com sucesso.");
+               Funcoes.Mensagem("Regitro alterado com sucesso.");
             } 
             
             transacao.commit();
