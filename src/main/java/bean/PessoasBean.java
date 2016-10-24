@@ -66,6 +66,7 @@ public class PessoasBean {
         pessoas.setComplemento(null);
         pessoas.setEmail(null);
         pessoas.setBairro(null);
+        tipoGrava = "";
     }
     
 //--------------------------------------------------------------------------------------------------------
