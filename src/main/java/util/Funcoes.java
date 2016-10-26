@@ -1,7 +1,6 @@
 package util;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 /**
@@ -10,7 +9,6 @@ import javax.faces.context.FacesContext;
  * Outubro / 2016
  */
 
-@ManagedBean
 public class Funcoes {
     
     public static void Mensagem(String wmensa){

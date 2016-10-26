@@ -12,39 +12,40 @@ Outubro / 2016
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
     <ui:composition template="template.xhtml">
-        <ui:param name="titulo" value="Pessoas" />
-        
-        <ui:define name="areadetrabalho">           
+        <ui:param name="titulo" value="Compromissos">
+
+        <ui:define name="areadetrabalho">
             <h:form>
-                <!-- INCLUIR -->
                 <b:commandButton value="Incluir novo" look="primary" action="#{pessoasBean.preparaCampos()}"/>
-            
+                
                 <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
-                    emptyMessage="Nenhuma pessoa cadastrada." rows="10" 
-                    paginator="true" paginatorPosition="bottom" 
-                    style="margin-top: 10px" id="pessoas-table">
-
-                    <p:column headerText="Nome" sortBy="#{lista.nome}">
-                        <h:outputText value="#{lista.nome}" />
-                    </p:column>
-
-                    <p:column headerText="Apelido" width="250">
+                                   emptyMessage="Nenhum compromisso cadastrado." rows="10" 
+                                   paginator="true" paginatorPosition="bottom" 
+                                   style="margin-top: 10px" id="compromissos-table">
+                                   
+                    <p:column headerText="Pessoa" sortBy="#{lista.nome}">
                         <h:outputText value="#{lista.apelido}" />
                     </p:column>
-
-                    <p:column headerText="Telefone(s)" width="160">
-                        <h:outputText value="#{lista.telefones}" />
+                    
+                    <p:column headerText="Data" width="250">
+                        <h:outputText value="#{lista.apelido}" />
+                    </p:column>
+                    
+                    <p:column headerText="Hora" width="250">
+                        <h:outputText value="#{lista.apelido}" />
                     </p:column>
                     
                     <p:column style="width:155px;text-align: center">
                         <h:commandButton class="btn btn-info" style="margin-right: 5px" value="Alterar" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
                         <h:commandButton class="btn btn-danger" value="Excluir" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
                     </p:column>
-		</p:dataTable>
-            </h:form>   
-            
+                </p:dataTable>                
+            </h:form>
         </ui:define>
-    </ui:composition>    
-</html> 
+    </ui:composition>
+    
+    
+    
+    
+</html>
