@@ -30,6 +30,16 @@ public class Compromissos implements Serializable {
     private String descricao;
     private Boolean realizado;
     
+    @OneToOne
+    @JoinColumn(name = "pessoa")
+    private Pessoas pessoa;
+    
+    
+    
+    
+    
+    
+    
     
     
     
