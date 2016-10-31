@@ -27,7 +27,7 @@ public class PessoasBean {
     public String preparaCampos(){
         tipoGrava = "incluir";
         limpaCampos();
-        return "formPessoas";        
+        return "formpessoas";        
     }
     
 //--------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class PessoasBean {
     public String dadosPessoa(Pessoas p){
         tipoGrava = "alterar";
         pessoas = p;
-        return "formPessoas";
+        return "formpessoas";
     }
     
 //--------------------------------------------------------------------------------------------------------

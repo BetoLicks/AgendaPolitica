@@ -29,7 +29,7 @@ public class Compromissos implements Serializable {
     
     private String endereco;
     private String descricao;
-    private Boolean realizado;
+    private String realizado;
 
     public Integer getId() {
         return id;
@@ -79,11 +79,11 @@ public class Compromissos implements Serializable {
         this.descricao = descricao;
     }
 
-    public Boolean getRealizado() {
+    public String getRealizado() {
         return realizado;
     }
 
-    public void setRealizado(Boolean realizado) {
+    public void setRealizado(String realizado) {
         this.realizado = realizado;
     }
 
