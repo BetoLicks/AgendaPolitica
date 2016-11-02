@@ -8,7 +8,6 @@ Outubro / 2016
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -18,31 +17,6 @@ Outubro / 2016
         
         <ui:define name="areadetrabalho">
             <h:form id="form">
-                <b:row>
-                    <b:column span="2">
-                        <p:outputLabel value="Data"/>
-<p:calendar value="#{pessoaBean.pessoa.dataNascimento}" 
-				id="campo-dtNascimento" 
-				showOn="button"
-				pattern="dd/MM/yyyy"
-                                locale="pt_BR" ></p:calendar>
-
-                    </b:column>
-
-                    <b:column span="1">
-                        <p:outputLabel value="Hora"/>
-                        <p:inputText style="margin-bottom: 10px" class="form-control" required="true" value="#{compromissosBean.compromissos.hrcompromisso}"/>    
-                    </b:column>
-                    
-                    <b:column span="2">
-                        <p:outputLabel value="Realizado"/>
-                        <p:inputText style="margin-bottom: 10px" class="form-control" required="true" value="#{compromissosBean.compromissos.realizado}"/>    
-                    </b:column>
-                    
-                </b:row>                    
-                
-                
-                
                 
                 
                 
