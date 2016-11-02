@@ -8,7 +8,6 @@ Outubro / 2016
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -17,66 +16,70 @@ Outubro / 2016
         <ui:param name="titulo" value="Cadastro de pessoa" />
         
         <ui:define name="areadetrabalho">
-            <h:form id="form">
-                <b:row>
-                    <b:column span="9">
+            <h:form id="form" >
+                <div class="content">
+                    <div class="row">
+                        <div class="col-8">
                         <p:outputLabel value="Nome"/>
-                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
-                            required="true" label="Nome">
-                            <f:validateLength minimum="2"/>  
-                        </p:inputText>
-                    </b:column>
+                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
+                                required="true" label="Nome">
+                                <f:validateLength minimum="2"/>  
+                            </p:inputText>                    
+                        </div>
 
-                    <b:column span="3">
-                        <p:outputLabel value="Apelido"/>
-                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.apelido}"/>    
-                    </b:column>
-                </b:row>                    
-                    
-                <b:row>
-                    <b:column span="4">
-                        <p:outputLabel value="Endereço"/>
-                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.endereco}"
-                            required="true" label="Endereco">
-                            <f:validateLength minimum="2"/>  
-                        </p:inputText>
-                    </b:column>
+                        <div class="col-4">
+                            <p:outputLabel value="Apelido"/>
+                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.apelido}"/>    
+                        </div>
+                    </div>
 
-                    <b:column span="4">
-                        <p:outputLabel value="Bairro"/>
-                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.bairro}"
-                            required="true" label="Bairro">
-                            <f:validateLength minimum="2"/>    
-                        </p:inputText>
-                    </b:column>
+                    <div class="row">
+                        <div class="col-4">
+                            <p:outputLabel value="Endereço"/>
+                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.endereco}"
+                                required="true" label="Endereco">
+                                <f:validateLength minimum="2"/>  
+                            </p:inputText>
+                        </div>
 
-                    <b:column span="4">
-                        <p:outputLabel value="Complemento"/>
-                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.complemento}"/>    
-                    </b:column>
-                </b:row>                       
+                        <div class="col-4">
+                            <p:outputLabel value="Bairro"/>
+                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.bairro}"
+                                required="true" label="Bairro">
+                                <f:validateLength minimum="2"/>    
+                            </p:inputText>
+                        </div>
+                        
+                        <div class="col-4">
+                            <p:outputLabel value="Complemento"/>
+                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.complemento}"/>    
+                        </div>
+                    </div>
 
-                <b:row>
-                    <b:column span="4">
-                        <p:outputLabel value="Telefone(s)"/>
-                        <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.telefones}"
-                            required="true" label="Telefones">
-                            <f:validateLength minimum="2"/>  
-                        </p:inputText>
-                    </b:column>
+                    <div class="row">
+                        <div class="col-8">
+                            <p:outputLabel value="Telefone(s)"/>
+                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.telefones}"
+                                required="true" label="Telefones">
+                                <f:validateLength minimum="2"/>  
+                            </p:inputText>
+                        </div>
 
-                    <b:column span="8">
-                        <p:outputLabel value="Email"/>
-                        <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>    
-                    </b:column>
-                </b:row>      
+                        <div class="col-4">
+                            <p:outputLabel value="Email"/>
+                           <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>                            
+                        </div>
+                    </div>                    
+
+                    <div class="row">
+                        <div class="col-4">
+                            <p:commandButton style="margin-right: 3px" value="Gravar" action="#{pessoasBean.salvaPessoa()}"/>
+                            <p:commandButton value="Cancelar" immediate="true" action="#{pessoasBean.voltaPessoas()}"/>
+                        </div>
+                    </div>                    
+                </div>
+
                 
-                <b:row>
-                    <b:column span="12">
-                        <b:commandButton style="margin-right: 3px" value="Gravar" look="success" action="#{pessoasBean.salvaPessoa()}"/>
-                        <b:commandButton value="Cancelar" immediate="true" look="danger" action="#{pessoasBean.voltaPessoas()}"/>
-                    </b:column>
-                </b:row>                    
                 
             </h:form>                    
         </ui:define>
