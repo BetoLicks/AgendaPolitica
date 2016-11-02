@@ -122,3 +122,11 @@ label, input {
         width: 100%;
 }                
 }
+
+.ui-widget {
+   font-size: 96% !important;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    box-shadow: none;
+}
