@@ -16,12 +16,48 @@ Outubro / 2016
         <ui:param name="titulo" value="Cadastro de compromissos" />
         
         <ui:define name="areadetrabalho">
-            <h:form id="form">
-                
-                
-                
-                
-                
+            <h:form id="form1">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-1">
+                            <p:outputLabel value="Data"/>
+                            <p:calendar size="12" id="dataPagamento" pattern="dd/MM/yyyy" required="true" label="Data do compromisso"
+                                        requiredMessage="O campo descrição é obrigatório." readonly="true" />
+                        </div>
+
+                        <div class="col-1">
+                            <p:outputLabel value="Hora" />
+                            <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  
+                                        readonly="true" />
+                        </div>
+                        
+                        <div class="col-7">
+                            <p:outputLabel value="Responsável"/>
+                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>                            
+                        </div>
+
+                        <div class="col-3">
+				<p:outputLabel value="Status" />
+				<h:selectOneMenu id="selecioneuf"
+					value="#{ofertaBean.oferta.ofertante.
+                                              pessoaJuridica.endereco.uf}">
+					<f:selectItem itemLabel="Agendado" itemValue="Agendado" />
+					<f:selectItem itemLabel="Cancelado" itemValue="Cancelado" />
+					<f:selectItem itemLabel="Realizado" itemValue="Realizado" />
+                                </h:selectOneMenu>                        
+                        </div>
+                    </div>
+
+
+                   
+
+                    <div class="row">
+                        <div class="col-4">
+                            <p:commandButton style="margin-right: 3px" value="Gravar" action="#{pessoasBean.salvaPessoa()}"/>
+                            <p:commandButton value="Cancelar" immediate="true" action="#{pessoasBean.voltaPessoas()}"/>
+                        </div>
+                    </div>                    
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

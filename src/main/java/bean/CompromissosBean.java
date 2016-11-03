@@ -16,7 +16,7 @@ public class CompromissosBean {
     private String tipoGrava;
     private Compromissos compromissos = new Compromissos();
     private List<Compromissos> lstcompromissos = new ArrayList<>();
-    private Calendar wdtcompromisso = Calendar.getInstance();
+    private Calendar wdtentrada = Calendar.getInstance();
     
     public String preparaCampos(){
         tipoGrava = "inclusao";
@@ -27,7 +27,7 @@ public class CompromissosBean {
     private void limpaCampos(){
         compromissos.setDescricao(null);
         compromissos.setDtcompromisso(null);
-        compromissos.setDtentrada(wdtcompromisso);
+        compromissos.setDtentrada(wdtentrada);
         compromissos.setEndereco(null);
         compromissos.setHrcompromisso(null);
         compromissos.setRealizado(null);
