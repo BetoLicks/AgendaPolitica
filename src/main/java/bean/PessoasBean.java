@@ -66,7 +66,6 @@ public class PessoasBean {
         pessoas.setComplemento(null);
         pessoas.setEmail(null);
         pessoas.setBairro(null);
-        tipoGrava = "";
     }
     
 //--------------------------------------------------------------------------------------------------------
@@ -107,7 +106,9 @@ public class PessoasBean {
 //-> GRAVA    
 //--------------------------------------------------------------------------------------------------------    
     public String salvaPessoa(){
-        Session sessao = HibernateUtil.getSessionFactory().openSession();        
+        Session sessao = HibernateUtil.getSessionFactory().openSession(); 
+        
+        System.out.println("* * *  TIPO DE GRAVAÇÃO: "+tipoGrava);
         
         try {           
             Transaction transacao = sessao.getTransaction();

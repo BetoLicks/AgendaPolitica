@@ -33,13 +33,13 @@ Outubro / 2016
                         <h:outputText value="#{lista.apelido}" />
                     </p:column>
 
-                    <p:column headerText="Telefone(s)" width="160">
+                    <p:column headerText="Telefone(s)" width="250">
                         <h:outputText value="#{lista.telefones}" />
                     </p:column>
                     
-                    <p:column style="width:155px;text-align: center">
-                        <h:commandButton class="btn btn-info" style="margin-right: 5px" value="Alterar" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
-                        <h:commandButton class="btn btn-danger" value="Excluir" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
+                    <p:column style="width:120px;text-align: center">
+                        <p:commandButton class="btn btn-info" icon="ui-icon-pencil" style="background-color: skyblue; margin-right: 5px" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
+                        <p:commandButton class="btn btn-danger" icon="ui-icon-trash" style="background-color: chocolate" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
                     </p:column>
 		</p:dataTable>
             </h:form>   
