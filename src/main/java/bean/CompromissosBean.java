@@ -2,7 +2,7 @@ package bean;
 
 import entidade.Compromissos;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 
@@ -16,6 +16,7 @@ public class CompromissosBean {
     private String tipoGrava;
     private Compromissos compromissos = new Compromissos();
     private List<Compromissos> lstcompromissos = new ArrayList<>();
+    private Calendar wdtcompromisso = Calendar.getInstance();
     
     public String preparaCampos(){
         tipoGrava = "inclusao";
@@ -26,7 +27,7 @@ public class CompromissosBean {
     private void limpaCampos(){
         compromissos.setDescricao(null);
         compromissos.setDtcompromisso(null);
-        compromissos.setDtentrada(null);
+        compromissos.setDtentrada(wdtcompromisso);
         compromissos.setEndereco(null);
         compromissos.setHrcompromisso(null);
         compromissos.setRealizado(null);
