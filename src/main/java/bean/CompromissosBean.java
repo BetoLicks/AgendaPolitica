@@ -30,6 +30,21 @@ public class CompromissosBean {
         return "formcompromissos";        
     }
     
+    public String dadosCompromisssos(Compromissos c){
+        tipoGrava = "alteracao";
+        compromissos = c;
+        return "formcompromissos";
+    }
+    
+    private void listaCompromissos(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        try {
+            lstcompromissos = sessao.createCriteria(Compromissos.class).list();
+        } catch (Exception e) {
+            System.out.println("* * * ERRO AO MONTAR PESQUISA: "+e.getMessage());
+        }
+    }
+            
     private void limpaCampos(){
         compromissos.setDtentrada(wdtentrada);
         compromissos.setDescricao(null);
@@ -51,8 +66,7 @@ public class CompromissosBean {
             Transaction transacao = sessao.getTransaction();
             transacao.begin();
             
-            
-            if (tipoGrava.equals("incluir")){
+            if (tipoGrava.equals("inclusao")){
                 sessao.save(compromissos);
                 Funcoes.Mensagem("Regitro incluído com sucesso.");
             }

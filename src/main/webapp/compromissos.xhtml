@@ -18,25 +18,33 @@ Outubro / 2016
             <h:form>
                 <p:commandButton value="Incluir novo" action="#{compromissosBean.preparaCampos()}"/>
                 
-                <p:dataTable value="#{pessoasBean.lstpessoas}" var="lista"
+                <p:dataTable value="#{compromissosBean.lstcompromissos}" var="lista"
                                    emptyMessage="Nenhum compromisso cadastrado." rows="10" 
                                    paginator="true" paginatorPosition="bottom" 
                                    style="margin-top: 10px" id="compromissos-table">
                                    
-                    <p:column headerText="Pessoa" sortBy="#{lista.nome}">
-                        <h:outputText value="#{lista.apelido}" />
+                    <p:column headerText="Data" sortBy="#{lista.dtcompromisso}" width="60">
+                        <h:outputText value="#{lista.dtcompromisso}" />
                     </p:column>
                     
-                    <p:column headerText="Data" width="250">
-                        <h:outputText value="#{lista.apelido}" />
+                    <p:column headerText="Hora" width="40">
+                        <h:outputText value="#{lista.hrcompromisso}" />
                     </p:column>
                     
-                    <p:column headerText="Hora" width="250">
-                        <h:outputText value="#{lista.apelido}" />
+                    <p:column headerText="Título" width="200">
+                        <h:outputText value="#{lista.titulo}" />
+                    </p:column>
+
+                    <p:column headerText="Local" width="200">
+                        <h:outputText value="#{lista.local}" />
                     </p:column>
                     
+                    <p:column headerText="Status" width="60">
+                        <h:outputText value="#{lista.status}" />
+                    </p:column>
+
                     <p:column style="width:155px;text-align: center">
-                        <h:commandButton class="btn btn-info" style="margin-right: 5px" value="Alterar" title="Alterar" action="#{pessoasBean.dadosPessoa(lista)}"/>
+                        <h:commandButton class="btn btn-info" style="margin-right: 5px" value="Alterar" title="Alterar" action="#{compromissosBean.dadosCompromisssos(lista)}"/>
                         <h:commandButton class="btn btn-danger" value="Excluir" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
                     </p:column>
                 </p:dataTable>                
