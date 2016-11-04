@@ -22,23 +22,23 @@ Outubro / 2016
                         <div class="col-1">
                             <p:outputLabel value="Data"/>
                             <p:calendar size="12" id="dtcompromisso" pattern="dd/MM/yyyy" required="true" label="Data do compromisso"
-                                        required="true" readonly="true" value="#{compromissosBean.compromissos.dtcompromisso}"/>
+                                        readonly="true" value="#{compromissosBean.compromissos.dtcompromisso}"/>
                         </div>
 
                         <div class="col-1">
                             <p:outputLabel value="Hora" />
-                            <p:calendar id="time" pattern="HH:mm" timeOnly="true" required="true"  
+                            <p:calendar id="time" pattern="HH:mm" timeOnly="true" 
                                         required="true" label="Hora" readonly="true" value="#{compromissosBean.compromissos.hrcompromisso}" />
                         </div>
                         
                         <div class="col-7">
                             <p:outputLabel value="Título"/>
-                            <p:inputText style="margin-bottom: 10px" class="form-control" required="true" maxlength="80" value="#{compromissosBean.compromissos.titulo}"/>
+                            <p:inputText style="margin-bottom: 10px" label="Título" class="form-control" required="true" maxlength="80" value="#{compromissosBean.compromissos.titulo}"/>
                         </div>
 
                         <div class="col-3">
 				<p:outputLabel value="Status" />
-				<h:selectOneMenu id="selecioneuf"
+				<h:selectOneMenu id="selecioneuf" label="Status"
                                                  value="#{compromissosBean.compromissos.status}">
 					<f:selectItem itemLabel="Agendado" itemValue="Agendado" />
 					<f:selectItem itemLabel="Cancelado" itemValue="Cancelado" />
@@ -50,13 +50,13 @@ Outubro / 2016
                     <div class="row">
                         <div class="col-4">
                             <p:outputLabel value="Local"/>
-                            <p:inputText style="margin-bottom: 10px" class="form-control" required="true" maxlength="80" value="#{compromissosBean.compromissos.local}"/>    
+                            <p:inputText style="margin-bottom: 10px" class="form-control" required="true" label="Local" maxlength="80" value="#{compromissosBean.compromissos.local}"/>    
                         </div>
 
                         <div class="col-8">
                             <p:outputLabel value="Descrição"/>
-                            <p:inputText class="form-control" required="true" maxlength="200" value="#{compromissosBean.compromissos.descricao}"
-                                required="true" label="Nome">
+                            <p:inputText class="form-control" maxlength="200" value="#{compromissosBean.compromissos.descricao}"
+                                required="true" label="Descrição">
                                 <f:validateLength minimum="2"/>  
                             </p:inputText>                    
                         </div>
