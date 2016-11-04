@@ -108,8 +108,6 @@ public class PessoasBean {
     public String salvaPessoa(){
         Session sessao = HibernateUtil.getSessionFactory().openSession(); 
         
-        System.out.println("* * *  TIPO DE GRAVAÇÃO: "+tipoGrava);
-        
         try {           
             Transaction transacao = sessao.getTransaction();
             transacao.begin();

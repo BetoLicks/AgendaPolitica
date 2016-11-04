@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="tab_compromissos")
 public class Compromissos implements Serializable {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
