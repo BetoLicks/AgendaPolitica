@@ -128,7 +128,6 @@ public class PessoasBean {
             
             limpaCampos();            
             listaPessoas();
-            return "pessoas";
         } catch (Exception e) {
             System.out.println("* * *  ERRO AO GRAVAR: "+e.getMessage());
         } finally {

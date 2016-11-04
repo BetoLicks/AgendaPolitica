@@ -16,15 +16,15 @@ Outubro / 2016
         <ui:param name="titulo" value="Cadastro de pessoa" />
         
         <ui:define name="areadetrabalho">
-            <h:form id="form" >
+            <h:form id="formpessoas" >
                 <div class="content">
                     <div class="row">
                         <div class="col-8">
-                        <p:outputLabel value="Nome"/>
-                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
-                                required="true" label="Nome">
-                                <f:validateLength minimum="2"/>  
-                            </p:inputText>                    
+                            <p:outputLabel value="Nome"/>
+                                <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
+                                    required="true" label="Nome">
+                                    <f:validateLength minimum="2"/>  
+                                </p:inputText>                    
                         </div>
 
                         <div class="col-4">

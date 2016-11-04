@@ -27,9 +27,10 @@ public class Compromissos implements Serializable {
     @Temporal(TemporalType.TIME)
     private Calendar hrcompromisso;
     
-    private String endereco;
+    private String titulo;
+    private String status;
+    private String local;
     private String descricao;
-    private String realizado;
 
     public Integer getId() {
         return id;
@@ -63,12 +64,28 @@ public class Compromissos implements Serializable {
         this.hrcompromisso = hrcompromisso;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
     }
 
     public String getDescricao() {
@@ -79,18 +96,10 @@ public class Compromissos implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getRealizado() {
-        return realizado;
-    }
-
-    public void setRealizado(String realizado) {
-        this.realizado = realizado;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.id);
         return hash;
     }
 

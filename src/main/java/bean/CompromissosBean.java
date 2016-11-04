@@ -5,13 +5,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.Funcoes;
+import util.HibernateUtil;
 
-/**
- *
- * @author pmm-dev
- */
+/********************************************************************************************************************
+ * @author Beto Licks
+ * Outubro / 2016
+ ********************************************************************************************************************/
 
 @ManagedBean
+@SessionScoped
 public class CompromissosBean {
     private String tipoGrava;
     private Compromissos compromissos = new Compromissos();
@@ -25,12 +31,46 @@ public class CompromissosBean {
     }
     
     private void limpaCampos(){
-        compromissos.setDescricao(null);
-        compromissos.setDtcompromisso(null);
         compromissos.setDtentrada(wdtentrada);
-        compromissos.setEndereco(null);
+        compromissos.setDescricao(null);
+        compromissos.setDtcompromisso(null);        
         compromissos.setHrcompromisso(null);
-        compromissos.setRealizado(null);
+        compromissos.setTitulo(null);
+        compromissos.setLocal(null);
+        compromissos.setStatus(null);
+        compromissos.setDescricao(null);
+    }
+    
+    public String voltaCompromisso(){
+        return "compromissos";
+    }
+    
+    public String salvaCompromisso(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Transaction transacao = sessao.getTransaction();
+            transacao.begin();
+            
+            
+            if (tipoGrava.equals("incluir")){
+                sessao.save(compromissos);
+                Funcoes.Mensagem("Regitro incluído com sucesso.");
+            }
+            
+            if (tipoGrava.equals("alteracao")){
+                sessao.update(compromissos);
+                Funcoes.Mensagem("Regitro alterado com sucesso.");
+            }            
+            
+            transacao.commit();
+            limpaCampos();
+        } catch (Exception e) {
+            
+        } finally {
+            sessao.close();
+        }
+     
+        return "compromissos";
     }
 
     public Compromissos getCompromissos() {
@@ -40,6 +80,29 @@ public class CompromissosBean {
     public void setCompromissos(Compromissos compromissos) {
         this.compromissos = compromissos;
     }
+
+    public List<Compromissos> getLstcompromissos() {
+        return lstcompromissos;
+    }
+
+    public void setLstcompromissos(List<Compromissos> lstcompromissos) {
+        this.lstcompromissos = lstcompromissos;
+    }
+        
+
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -65,4 +128,3 @@ public class CompromissosBean {
     
     
     
-}
