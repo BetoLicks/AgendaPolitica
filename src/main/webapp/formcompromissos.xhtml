@@ -28,12 +28,12 @@ Outubro / 2016
                         <div class="col-1">
                             <p:outputLabel value="Hora" />
                             <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  
-                                        readonly="true" />
+                                        required="true" label="Hora" readonly="true" />
                         </div>
                         
                         <div class="col-7">
-                            <p:outputLabel value="Responsável"/>
-                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>                            
+                            <p:outputLabel value="Título"/>
+                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.email}"/>
                         </div>
 
                         <div class="col-3">
@@ -48,11 +48,23 @@ Outubro / 2016
                         </div>
                     </div>
 
-
-                   
-
                     <div class="row">
                         <div class="col-4">
+                            <p:outputLabel value="Local"/>
+                            <p:inputText style="margin-bottom: 10px" class="form-control" maxlength="80" value="#{pessoasBean.pessoas.apelido}"/>    
+                        </div>
+
+                        <div class="col-8">
+                            <p:outputLabel value="Descrição"/>
+                            <p:inputText class="form-control" maxlength="80" value="#{pessoasBean.pessoas.nome}"
+                                required="true" label="Nome">
+                                <f:validateLength minimum="2"/>  
+                            </p:inputText>                    
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
                             <p:commandButton style="margin-right: 3px" value="Gravar" action="#{pessoasBean.salvaPessoa()}"/>
                             <p:commandButton value="Cancelar" immediate="true" action="#{pessoasBean.voltaPessoas()}"/>
                         </div>
