@@ -10,5 +10,6 @@
     <property name="hibernate.hbm2ddl.auto">update</property>
     
     <mapping class="entidade.Pessoas"/>
+    <mapping class="entidade.Compromisssos"/>
   </session-factory>
 </hibernate-configuration>
