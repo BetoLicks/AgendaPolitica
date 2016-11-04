@@ -25,13 +25,21 @@ public class CompromissosBean {
     private Calendar wdtentrada = Calendar.getInstance();
     
     public String preparaCampos(){
-        tipoGrava = "inclusao";
+        tipoGrava = "incluir";
         limpaCampos();
         return "formcompromissos";        
     }
     
+//--------------------------------------------------------------------------------------------------------
+//-> INICIAL
+//--------------------------------------------------------------------------------------------------------    
+    public CompromissosBean(){
+       limpaCampos();
+       listaCompromissos();        
+    }    
+    
     public String dadosCompromisssos(Compromissos c){
-        tipoGrava = "alteracao";
+        tipoGrava = "alterar";
         compromissos = c;
         return "formcompromissos";
     }
@@ -66,12 +74,12 @@ public class CompromissosBean {
             Transaction transacao = sessao.getTransaction();
             transacao.begin();
             
-            if (tipoGrava.equals("inclusao")){
+            if (tipoGrava.equals("incluir")){
                 sessao.save(compromissos);
                 Funcoes.Mensagem("Regitro incluído com sucesso.");
             }
             
-            if (tipoGrava.equals("alteracao")){
+            if (tipoGrava.equals("alterar")){
                 sessao.update(compromissos);
                 Funcoes.Mensagem("Regitro alterado com sucesso.");
             }            
