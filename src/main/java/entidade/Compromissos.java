@@ -28,7 +28,7 @@ public class Compromissos implements Serializable {
     
     private String titulo;
     private String status;
-    private String local;
+    private String localizacao;
     private String descricao;
 
     public Integer getId() {
@@ -79,12 +79,12 @@ public class Compromissos implements Serializable {
         this.status = status;
     }
 
-    public String getLocal() {
-        return local;
+    public String getLocalizacao() {
+        return localizacao;
     }
 
-    public void setLocal(String local) {
-        this.local = local;
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 
     public String getDescricao() {

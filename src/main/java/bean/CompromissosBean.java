@@ -35,7 +35,8 @@ public class CompromissosBean {
 //--------------------------------------------------------------------------------------------------------    
     public CompromissosBean(){
        limpaCampos();
-       listaCompromissos();        
+       listaCompromissos();  
+        Funcoes.Mensagem("TESTE.");
     }    
     
     public String dadosCompromisssos(Compromissos c){
@@ -59,7 +60,7 @@ public class CompromissosBean {
         compromissos.setDtcompromisso(null);        
         compromissos.setHrcompromisso(null);
         compromissos.setTitulo(null);
-        compromissos.setLocal(null);
+        compromissos.setLocalizacao(null);
         compromissos.setStatus(null);
         compromissos.setDescricao(null);
     }
@@ -75,8 +76,17 @@ public class CompromissosBean {
             transacao.begin();
             
             if (tipoGrava.equals("incluir")){
+                
+            
+                        
+
+                
                 sessao.save(compromissos);
                 Funcoes.Mensagem("Regitro incluído com sucesso.");
+                
+    System.out.println("*************************************************************************************");
+                System.out.println("incluiu");
+                System.out.println("*************************************************************************************");                
             }
             
             if (tipoGrava.equals("alterar")){
