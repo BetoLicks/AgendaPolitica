@@ -86,6 +86,7 @@ public class CompromissosBean {
             
             transacao.commit();
             limpaCampos();
+            listaCompromissos();
         } catch (Exception e) {
             
         } finally {
