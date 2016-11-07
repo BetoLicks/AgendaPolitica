@@ -78,6 +78,8 @@ public class PessoasBean {
         } catch (Exception e) {
             System.out.println("* * * ERRO AO MONTAR PESQUISA: "+e.getMessage());
         }
+        
+        sessao.close();
     }
 
 //--------------------------------------------------------------------------------------------------------

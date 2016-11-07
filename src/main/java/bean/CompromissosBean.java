@@ -52,6 +52,8 @@ public class CompromissosBean {
         } catch (Exception e) {
             System.out.println("* * * ERRO AO MONTAR PESQUISA: "+e.getMessage());
         }
+        
+        sessao.close();
     }
             
     private void limpaCampos(){
@@ -70,23 +72,15 @@ public class CompromissosBean {
     }
     
     public String salvaCompromisso(){
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        Session sessao = HibernateUtil.getSessionFactory().openSession(); 
+        
         try {
             Transaction transacao = sessao.getTransaction();
             transacao.begin();
             
             if (tipoGrava.equals("incluir")){
-                
-            
-                        
-
-                
                 sessao.save(compromissos);
                 Funcoes.Mensagem("Regitro incluído com sucesso.");
-                
-    System.out.println("*************************************************************************************");
-                System.out.println("incluiu");
-                System.out.println("*************************************************************************************");                
             }
             
             if (tipoGrava.equals("alterar")){
@@ -100,6 +94,7 @@ public class CompromissosBean {
         } catch (Exception e) {
             
         } finally {
+            sessao.flush();
             sessao.close();
         }
      

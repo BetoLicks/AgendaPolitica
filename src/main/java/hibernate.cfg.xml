@@ -8,6 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">xfilesgdb</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql" value="true" />
     
     <mapping class="entidade.Compromissos"/>
     <mapping class="entidade.Pessoas"/>
