@@ -77,19 +77,8 @@ public class CompromissosBean {
             transacao.begin();
             
             if (tipoGrava.equals("incluir")){
-                
-                Funcoes.Mensagem("Regitro incluído com sucesso.");
-                
                 sessao.save(compromissos);
-                
-                
-                System.out.println("===================================================================");
-                System.out.println("DESCRIÇÃO: "+compromissos.getDescricao());
-                System.out.println("LOCALIZAÇÃO: "+compromissos.getLocalizacao());
-                System.out.println("STATUS: "+compromissos.getStatus());
-                System.out.println("TITULO: "+compromissos.getTitulo());
-                System.out.println("===================================================================");                
-                
+                Funcoes.Mensagem("Regitro incluído com sucesso.");
             }
             
             if (tipoGrava.equals("alterar")){
