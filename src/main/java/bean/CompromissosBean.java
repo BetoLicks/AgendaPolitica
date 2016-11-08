@@ -36,7 +36,6 @@ public class CompromissosBean {
     public CompromissosBean(){
        limpaCampos();
        listaCompromissos();  
-        Funcoes.Mensagem("TESTE.");
     }    
     
     public String dadosCompromisssos(Compromissos c){
@@ -57,7 +56,6 @@ public class CompromissosBean {
     }
             
     private void limpaCampos(){
-        compromissos.setDtentrada(wdtentrada);
         compromissos.setDescricao(null);
         compromissos.setDtcompromisso(null);        
         compromissos.setHrcompromisso(null);
@@ -94,7 +92,6 @@ public class CompromissosBean {
         } catch (Exception e) {
             
         } finally {
-            sessao.flush();
             sessao.close();
         }
      
@@ -116,43 +113,4 @@ public class CompromissosBean {
     public void setLstcompromissos(List<Compromissos> lstcompromissos) {
         this.lstcompromissos = lstcompromissos;
     }
-        
-
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

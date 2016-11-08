@@ -15,11 +15,8 @@ import javax.persistence.*;
 public class Compromissos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    
-    @Temporal(TemporalType.DATE)
-    private Calendar dtentrada;
-    
+    private Integer id;    
+   
     @Temporal(TemporalType.DATE)
     private Calendar dtcompromisso;
     
@@ -37,14 +34,6 @@ public class Compromissos implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Calendar getDtentrada() {
-        return dtentrada;
-    }
-
-    public void setDtentrada(Calendar dtentrada) {
-        this.dtentrada = dtentrada;
     }
 
     public Calendar getDtcompromisso() {
