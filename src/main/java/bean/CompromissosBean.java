@@ -77,8 +77,11 @@ public class CompromissosBean {
             transacao.begin();
             
             if (tipoGrava.equals("incluir")){
-                sessao.save(compromissos);
+                
                 Funcoes.Mensagem("Regitro incluído com sucesso.");
+                
+                sessao.save(compromissos);
+                
                 
                 System.out.println("===================================================================");
                 System.out.println("DESCRIÇÃO: "+compromissos.getDescricao());
@@ -98,6 +101,7 @@ public class CompromissosBean {
             limpaCampos();
             listaCompromissos();
         } catch (Exception e) {
+            
             
         } finally {
             sessao.close();
