@@ -28,14 +28,6 @@ public class Compromissos implements Serializable {
     private String localizacao;
     private String descricao;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Calendar getDtcompromisso() {
         return dtcompromisso;
     }
@@ -50,6 +42,15 @@ public class Compromissos implements Serializable {
 
     public void setHrcompromisso(Calendar hrcompromisso) {
         this.hrcompromisso = hrcompromisso;
+    }
+
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitulo() {
