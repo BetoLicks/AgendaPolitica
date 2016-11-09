@@ -22,13 +22,13 @@ Outubro / 2016
                         <div class="col-1">
                             <p:outputLabel value="Data"/>
                             <p:calendar size="12" pattern="dd/MM/yyyy" required="true" label="Data do compromisso"
-                                        readonly="true" value="#{compromissosBean.compromissos.dtcompromisso}"/>
+                                        readonly="true" locale="pt" value="#{compromissosBean.compromissos.dtcompromisso}"/>
                         </div>
 
                         <div class="col-1">
                             <p:outputLabel value="Hora" />
                             <p:calendar pattern="HH:mm" timeOnly="true" 
-                                        required="true" label="Hora" readonly="true" value="#{compromissosBean.compromissos.hrcompromisso}" />
+                                        required="true" locale="pt" label="Hora" readonly="true" value="#{compromissosBean.compromissos.hrcompromisso}" />
                         </div>
                         
                         <div class="col-7">
