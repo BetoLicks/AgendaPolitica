@@ -18,8 +18,10 @@ public class Compromissos implements Serializable {
     private Integer id;    
        
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
     private Date dtcompromisso;
+    
+    @Temporal(TemporalType.DATE)
+    private Date dtentrada;
     
     @Temporal(TemporalType.TIME)
     private Date hrcompromisso;
@@ -85,6 +87,14 @@ public class Compromissos implements Serializable {
         this.descricao = descricao;
     }
 
+    public Date getDtentrada() {
+        return dtentrada;
+    }
+
+    public void setDtentrada(Date dtentrada) {
+        this.dtentrada = dtentrada;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

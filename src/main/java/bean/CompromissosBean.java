@@ -2,7 +2,7 @@ package bean;
 
 import entidade.Compromissos;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,7 +22,7 @@ public class CompromissosBean {
     private String tipoGrava;
     private Compromissos compromissos = new Compromissos();
     private List<Compromissos> lstcompromissos = new ArrayList<>();
-    private Calendar wdtentrada = Calendar.getInstance();
+    private Date wdtentrada = new Date();
     
     public String preparaCampos(){
         tipoGrava = "incluir";
@@ -63,6 +63,7 @@ public class CompromissosBean {
         compromissos.setLocalizacao(null);
         compromissos.setStatus(null);
         compromissos.setDescricao(null);
+        compromissos.setDtentrada(wdtentrada);
     }
     
     public String voltaCompromisso(){
@@ -85,10 +86,6 @@ public class CompromissosBean {
                 sessao.update(compromissos);
                 Funcoes.Mensagem("Regitro alterado com sucesso.");
             }            
-
-            System.out.println("============================================================");
-            System.out.println("DATA: "+compromissos.getDtcompromisso());
-            System.out.println("============================================================");
             
             transacao.commit();
             limpaCampos();
