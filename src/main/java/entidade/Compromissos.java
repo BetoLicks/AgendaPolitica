@@ -18,6 +18,7 @@ public class Compromissos implements Serializable {
     private Integer id;    
        
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date dtcompromisso;
     
     @Temporal(TemporalType.TIME)

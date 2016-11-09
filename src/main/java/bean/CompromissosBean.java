@@ -86,7 +86,9 @@ public class CompromissosBean {
                 Funcoes.Mensagem("Regitro alterado com sucesso.");
             }            
 
+            System.out.println("============================================================");
             System.out.println("DATA: "+compromissos.getDtcompromisso());
+            System.out.println("============================================================");
             
             transacao.commit();
             limpaCampos();
