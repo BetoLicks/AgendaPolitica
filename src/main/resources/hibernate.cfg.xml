@@ -9,7 +9,7 @@
     <property name="hibernate.connection.password">xfilesgdb</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     
+    <mapping class="entidade.Compromissos"/>
     <mapping class="entidade.Pessoas"/>
-    <mapping class="entidade.Compromissos"/>    
   </session-factory>
 </hibernate-configuration>

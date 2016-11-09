@@ -43,9 +43,9 @@ Outubro / 2016
                         <h:outputText value="#{lista.status}" />
                     </p:column>
 
-                    <p:column style="width:155px;text-align: center">
-                        <h:commandButton class="btn btn-info" style="margin-right: 5px" value="Alterar" title="Alterar" action="#{compromissosBean.dadosCompromisssos(lista)}"/>
-                        <h:commandButton class="btn btn-danger" value="Excluir" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
+                    <p:column style="width:120px;text-align: center">
+                        <p:commandButton class="btn btn-info" icon="ui-icon-pencil" style="background-color: skyblue; margin-right: 5px" title="Alterar" action="#{compromissosBean.dadosCompromisssos(lista)}"/>
+                        <p:commandButton class="btn btn-danger" icon="ui-icon-trash" style="background-color: chocolate" title="Excluir" action="#{pessoasBean.excluiPessoa(lista)}"/>
                     </p:column>
                 </p:dataTable>                
             </h:form>

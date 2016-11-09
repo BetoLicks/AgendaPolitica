@@ -1,7 +1,7 @@
 package entidade;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -16,34 +16,33 @@ public class Compromissos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;    
-   
+       
     @Temporal(TemporalType.DATE)
-    private Calendar dtcompromisso;
+    private Date dtcompromisso;
     
     @Temporal(TemporalType.TIME)
-    private Calendar hrcompromisso;
+    private Date hrcompromisso;
     
     private String titulo;
     private String status;
     private String localizacao;
     private String descricao;
 
-    public Calendar getDtcompromisso() {
+    public Date getDtcompromisso() {
         return dtcompromisso;
     }
 
-    public void setDtcompromisso(Calendar dtcompromisso) {
+    public void setDtcompromisso(Date dtcompromisso) {
         this.dtcompromisso = dtcompromisso;
     }
 
-    public Calendar getHrcompromisso() {
+    public Date getHrcompromisso() {
         return hrcompromisso;
     }
 
-    public void setHrcompromisso(Calendar hrcompromisso) {
+    public void setHrcompromisso(Date hrcompromisso) {
         this.hrcompromisso = hrcompromisso;
     }
-
     
     public Integer getId() {
         return id;
